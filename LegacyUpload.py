@@ -22,7 +22,10 @@ if len(sys.argv) > 1:
 		
 		
 		for file in tqdm (os.listdir(LegacyDir), desc="Processing Zips"):
-			os.system(f"zip {file}.zip -r {LegacyDir}/{file} -q -9")
+			if not f"{file}.zip" in os.listdir("/tmp/Legacy"):
+				os.system(f"zip {file}.zip -r {LegacyDir}/{file} -q -9")
+			else: 
+				print(f"[*] Detected Duplicate File : {file}")
 
 		os.system("git add . && git commit -m 'Adding challenge backups' && git push -u origin master")
 
