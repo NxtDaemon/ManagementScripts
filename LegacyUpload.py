@@ -28,6 +28,7 @@ if len(sys.argv) > 1:
 				print(f"[*] Detected Duplicate File : {file}")
 
 		os.system("git add . && git commit -m 'Adding challenge backups' && git push -u origin master")
+		print("Backup Completed , Advise 'rm ~/Backups/Legacy/* -rf' ")
 
 	elif sys.argv[1] != "Backup":
 		print("Usage : Python3 LegacyUpload.py <Mode>")
